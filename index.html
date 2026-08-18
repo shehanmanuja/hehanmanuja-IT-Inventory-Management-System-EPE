@@ -598,22 +598,115 @@
              TAB 3: REPORTS & ANALYTICS VIEW
              ========================================== -->
         <div class="tab-content" id="reports-view">
-          <div class="dashboard-title-group" style="margin-bottom: 1.5rem;">
-            <h1>Inventory Analytics</h1>
-            <p>Asset distribution and operational status summary</p>
+
+          <!-- Analytics Sub-Header -->
+          <div class="analytics-page-header">
+            <div>
+              <div class="breadcrumb-trail">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                <span>›</span>
+                <span>Reports & Analytics</span>
+              </div>
+              <h1 class="analytics-page-title">Inventory Analytics</h1>
+              <p class="analytics-page-sub">Real-time asset distribution, status health, and category breakdown</p>
+            </div>
+            <div class="analytics-header-badges">
+              <div class="analytics-live-badge">
+                <span class="live-pulse-dot"></span>
+                Live Data
+              </div>
+              <button type="button" class="btn-secondary" id="analytics-export-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Export Report
+              </button>
+            </div>
           </div>
 
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-            <div class="widget-card">
-              <h3>Asset Breakdown by Category</h3>
-              <div id="category-chart-container" style="margin-top: 1rem;"></div>
+          <!-- KPI Summary Strip -->
+          <div class="analytics-kpi-strip" id="analytics-kpi-strip"></div>
+
+          <!-- Main Charts Grid -->
+          <div class="analytics-charts-grid">
+
+            <!-- LEFT: Category Donut Chart -->
+            <div class="analytics-card analytics-donut-card">
+              <div class="analytics-card-header">
+                <div>
+                  <h3 class="analytics-card-title">Asset Breakdown by Category</h3>
+                  <p class="analytics-card-sub">Distribution across all hardware types</p>
+                </div>
+                <div class="analytics-card-badge">Categories</div>
+              </div>
+              <div class="analytics-donut-wrapper">
+                <svg id="category-donut-svg" viewBox="0 0 220 220" class="analytics-donut-svg"></svg>
+                <div class="analytics-donut-center" id="donut-center-label">
+                  <span class="donut-center-num" id="donut-total-num">0</span>
+                  <span class="donut-center-text">Total Assets</span>
+                </div>
+              </div>
+              <div class="analytics-donut-legend" id="category-legend"></div>
             </div>
 
-            <div class="widget-card">
-              <h3>Operational Status Summary</h3>
-              <div id="status-chart-container" style="margin-top: 1rem;"></div>
+            <!-- RIGHT: Status Bar Chart -->
+            <div class="analytics-card analytics-bar-card">
+              <div class="analytics-card-header">
+                <div>
+                  <h3 class="analytics-card-title">Operational Status Summary</h3>
+                  <p class="analytics-card-sub">Health check across all registered assets</p>
+                </div>
+                <div class="analytics-card-badge">Status</div>
+              </div>
+              <div id="status-chart-container" class="analytics-status-bars"></div>
+              <!-- Status Donut -->
+              <div class="analytics-status-donut-row">
+                <svg id="status-donut-svg" viewBox="0 0 180 180" class="analytics-status-donut-svg"></svg>
+                <div class="analytics-status-donut-legend" id="status-donut-legend"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Category Bar Chart (Full Width) -->
+          <div class="analytics-card analytics-fullwidth-card">
+            <div class="analytics-card-header">
+              <div>
+                <h3 class="analytics-card-title">Category Distribution — Bar View</h3>
+                <p class="analytics-card-sub">Item count per hardware category with percentage breakdown</p>
+              </div>
+              <div class="analytics-top-categories" id="analytics-top-label"></div>
+            </div>
+            <div id="category-chart-container" class="analytics-bar-list"></div>
+          </div>
+
+          <!-- Bottom Row: Value + Top Assets -->
+          <div class="analytics-bottom-grid">
+            <!-- Valuation by Category -->
+            <div class="analytics-card">
+              <div class="analytics-card-header">
+                <div>
+                  <h3 class="analytics-card-title">Inventory Valuation by Category</h3>
+                  <p class="analytics-card-sub">Estimated LKR value per hardware type</p>
+                </div>
+              </div>
+              <div id="value-chart-container" class="analytics-bar-list"></div>
+            </div>
+
+            <!-- Top Assigned Users -->
+            <div class="analytics-card">
+              <div class="analytics-card-header">
+                <div>
+                  <h3 class="analytics-card-title">Top Asset Holders</h3>
+                  <p class="analytics-card-sub">Users with the most assigned hardware</p>
+                </div>
+              </div>
+              <div id="user-chart-container" class="analytics-user-list"></div>
             </div>
           </div>
+
         </div>
 
         <!-- ==========================================
