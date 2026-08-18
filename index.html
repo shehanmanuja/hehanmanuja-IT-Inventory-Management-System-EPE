@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXIMIUS POWER AND ENERGY | IT Inventory Management System</title>
+  <meta name="description"
+    content="High-tech dark modern IT Inventory Management System UI dashboard for tracking enterprise hardware, devices, and infrastructure assets.">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="app-container">
+
+    <!-- ==========================================
+         SIDEBAR NAVIGATION WITH TEXT LABELS
+         ========================================== -->
+    <aside class="sidebar">
+      <div class="brand-header">
+        <img src="logo.png" alt="EXIMIUS POWER AND ENERGY" class="brand-logo-full-img"
+          style="height: 40px; width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 0 8px rgba(0, 255, 157, 0.4));">
+      </div>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item active" data-tab="dashboard-view">
+          <button type="button" title="Dashboard Overview">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Dashboard Overview</span>
+          </button>
+        </li>
+        <li class="nav-item" data-tab="inventory-view">
+          <button type="button" title="Items Inventory">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <span>Items Inventory</span>
+          </button>
+        </li>
+        <li class="nav-item" id="sidebar-add-note-btn">
+          <button type="button" title="Add Quick Note with Photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+            </svg>
+            <span>Add Quick Note</span>
+          </button>
+        </li>
+        <li class="nav-item" data-tab="reports-view">
+          <button type="button" title="Reports & Analytics">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <span>Reports & Analytics</span>
+          </button>
+        </li>
+        <li class="nav-item" data-tab="settings-view">
+          <button type="button" title="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+              </path>
+            </svg>
+            <span>Settings</span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <span class="system-status-dot"></span>
+        <span>System Online & Syncing</span>
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT WRAPPER
+         ========================================== -->
+    <div class="main-wrapper">
+
+      <!-- TOP NAVBAR HEADER -->
+      <header class="top-navbar">
+        <div class="top-navbar-left">
+          <button type="button" class="btn-sidebar-toggle" id="sidebar-toggle-btn" title="Toggle Sidebar">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="header-title-area">
+            <h1>EXIMIUS POWER AND ENERGY</h1>
+            <p>IT Inventory Management System • Enterprise Asset Control</p>
+          </div>
+        </div>
+
+        <!-- Global Search Bar -->
+        <div class="search-pill-wrapper">
+          <svg class="search-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="global-search-input" class="search-pill-input" placeholder="Search...">
+          <span class="search-shortcut-badge">⌘K</span>
+        </div>
+
+        <!-- Right Utilities & Action Controls -->
+        <div class="top-navbar-right">
+          <!-- Add New Item Button -->
+          <button type="button" class="btn-primary" id="header-add-item-btn" title="Add New Item / Quick Add">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Add New Item</span>
+          </button>
+
+          <!-- Undo, Redo & Save Action Bar -->
+          <div class="history-controls-bar">
+            <button type="button" class="btn-history-action" id="header-undo-btn" title="Undo Last Action (Ctrl+Z)"
+              disabled>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 7v6h6"></path>
+                <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path>
+              </svg>
+            </button>
+            <button type="button" class="btn-history-action" id="header-redo-btn" title="Redo Action (Ctrl+Y)" disabled>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 7v6h-6"></path>
+                <path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"></path>
+              </svg>
+            </button>
+            <button type="button" class="btn-save-sync" id="header-save-btn" title="Save All Changes (Ctrl+S)">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              </svg>
+              <span id="save-status-text">Save</span>
+            </button>
+          </div>
+
+          <!-- User Profile -->
+          <div class="user-profile-badge" id="header-profile-badge" title="Click to Switch Operator Profile">
+            <div class="avatar-wrapper">
+              <img src="DP.jpg" alt="Active Operator" class="avatar-img" onerror="this.style.display='none'">
+              <span class="online-indicator"></span>
+            </div>
+            <div class="user-info">
+              <span class="user-name" id="display-operator-name">Shehan Jayasinghe</span>
+              <span class="user-role" id="display-operator-role">IT Executive</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY AREA -->
+      <main class="content-body">
+
+        <!-- ==========================================
+             TAB 1: DASHBOARD OVERVIEW
+             ========================================== -->
+        <div class="tab-content active" id="dashboard-view">
+
+          <!-- Dashboard Sub-Header -->
+          <div class="dashboard-sub-header">
+            <div>
+              <div class="breadcrumb-trail">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                </svg>
+                <span>›</span>
+                <span>Dashboard</span>
+              </div>
+              <div class="dashboard-title-group">
+                <h1>Overview</h1>
+                <p>Monitor key metrics and manage your platform</p>
+              </div>
+            </div>
+
+            <div class="dashboard-actions-group">
+              <button type="button" class="btn-secondary">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>This Month</span>
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+
+              <button type="button" class="btn-primary" id="dashboard-add-item-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span>Add Asset</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- HERO WELCOME & LIVE CLOCK CARD -->
+          <section class="hero-welcome-card">
+            <div class="hero-left-content">
+              <h2 id="hero-greeting-text">Hope you're well, Shehan</h2>
+              <p>Ready to make today productive! 🚀</p>
+              <div class="hero-digital-clock" id="hero-clock-display">
+                01:16:00 <span class="ampm">PM</span>
+              </div>
+            </div>
+
+            <!-- Weather Widget Card -->
+            <div class="weather-status-widget">
+              <div class="weather-icon-glow">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#60a5fa" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"></path>
+                  <circle cx="12" cy="12" r="4"></circle>
+                </svg>
+              </div>
+              <div class="weather-temp">29°C</div>
+              <div class="weather-details">
+                <span class="weather-desc">Partly Cloudy</span>
+                <span class="weather-location">Colombo, Sri Lanka</span>
+                <span class="weather-date" id="hero-weather-date">Saturday, November 15, 2025</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5 METRIC STAT CARDS ROW -->
+          <section class="stats-cards-grid">
+            <div class="stat-card-modern">
+              <div class="stat-card-header">
+                <div class="stat-icon-square">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    </path>
+                  </svg>
+                </div>
+                <div class="stat-title">Total Assets</div>
+                <span class="stat-drag-handle">⋮⋮</span>
+              </div>
+              <div class="stat-card-body">
+                <div class="stat-value" id="stat-total">0</div>
+                <span class="stat-trend-badge up">↗ +3</span>
+              </div>
+            </div>
+
+            <div class="stat-card-modern">
+              <div class="stat-card-header">
+                <div class="stat-icon-square">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="stat-title">Assigned Assets</div>
+                <span class="stat-drag-handle">⋮⋮</span>
+              </div>
+              <div class="stat-card-body">
+                <div class="stat-value" id="stat-assigned">0</div>
+                <span class="stat-trend-badge up">↗ +12%</span>
+              </div>
+            </div>
+
+            <div class="stat-card-modern">
+              <div class="stat-card-header">
+                <div class="stat-icon-square">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <div class="stat-title">Available Assets</div>
+                <span class="stat-drag-handle">⋮⋮</span>
+              </div>
+              <div class="stat-card-body">
+                <div class="stat-value" id="stat-available">0</div>
+                <span class="stat-trend-badge up">↗ +5%</span>
+              </div>
+            </div>
+
+            <div class="stat-card-modern">
+              <div class="stat-card-header">
+                <div class="stat-icon-square">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                    </path>
+                  </svg>
+                </div>
+                <div class="stat-title">Maintenance / Repair</div>
+                <span class="stat-drag-handle">⋮⋮</span>
+              </div>
+              <div class="stat-card-body">
+                <div class="stat-value" id="stat-maintenance">0</div>
+                <span class="stat-trend-badge neutral">→ 0%</span>
+              </div>
+            </div>
+
+            <div class="stat-card-modern">
+              <div class="stat-card-header">
+                <div class="stat-icon-square" style="color:var(--accent-cyan);">LKR</div>
+                <div class="stat-title">Inventory Valuation</div>
+                <span class="stat-drag-handle">⋮⋮</span>
+              </div>
+              <div class="stat-card-body">
+                <div class="stat-value" id="stat-valuation" style="font-size: 1.25rem; color: var(--accent-cyan);">Rs
+                  0.00</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3-COLUMN DASHBOARD GRID -->
+          <section class="dashboard-grid-3col">
+            <!-- COLUMN 1: QUICK TASKS WIDGET -->
+            <div class="widget-card">
+              <div class="widget-header">
+                <div class="widget-header-title">
+                  <h3>Quick Tasks</h3>
+                  <p>Manage your daily tasks</p>
+                </div>
+              </div>
+
+              <div class="task-pills-row">
+                <button type="button" class="task-tab-pill active" id="task-filter-active">Active (3)</button>
+                <button type="button" class="task-tab-pill" id="task-filter-completed">Completed (3)</button>
+              </div>
+
+              <div class="task-input-box">
+                <input type="text" id="task-input-field" placeholder="Add a quick task...">
+                <button type="button" class="task-add-btn" id="task-add-submit-btn">+</button>
+              </div>
+
+              <ul class="tasks-list" id="quick-tasks-container"></ul>
+            </div>
+
+            <!-- COLUMN 2: INTERACTIVE CALENDAR WIDGET -->
+            <div class="widget-card">
+              <div class="widget-header">
+                <div class="widget-header-title">
+                  <h3>Calendar</h3>
+                  <p id="cal-selected-subtext">Saturday, November 15, 2025</p>
+                </div>
+              </div>
+
+              <div class="calendar-controls">
+                <button type="button" class="calendar-nav-btn" id="cal-prev-btn">‹</button>
+                <span class="calendar-month-title" id="cal-month-year-text">November 2025</span>
+                <button type="button" class="calendar-nav-btn" id="cal-next-btn">›</button>
+              </div>
+
+              <div class="calendar-grid" id="calendar-days-container"></div>
+
+              <!-- Selected Date Registered Assets List -->
+              <div class="calendar-selected-assets-box" id="calendar-assets-container"></div>
+            </div>
+
+            <!-- COLUMN 3: INSIGHTS & REVENUE ANALYTICS -->
+            <div class="analytics-column">
+              <div class="widget-card">
+                <div class="widget-header">
+                  <div class="widget-header-title">
+                    <h3>Insights</h3>
+                    <p>Performance analytics</p>
+                  </div>
+                  <div style="display:flex; gap:0.4rem;">
+                    <span class="task-tab-pill active" style="font-size:0.7rem; padding: 2px 8px;">Performance</span>
+                    <span class="task-tab-pill" style="font-size:0.7rem; padding: 2px 8px;">Trends</span>
+                  </div>
+                </div>
+
+                <div class="insights-chart-container">
+                  <svg class="concentric-rings-svg" viewBox="0 0 160 160">
+                    <circle class="ring-bg" cx="80" cy="80" r="70" stroke-width="8"></circle>
+                    <circle class="ring-progress-blue" cx="80" cy="80" r="70" stroke-width="8"></circle>
+                    <circle class="ring-bg" cx="80" cy="80" r="54" stroke-width="8"></circle>
+                    <circle class="ring-progress-green" cx="80" cy="80" r="54" stroke-width="8"></circle>
+                  </svg>
+                  <div class="ring-center-label">85%</div>
+                </div>
+
+                <div class="insights-legend">
+                  <div class="legend-item">
+                    <div class="legend-info"><span class="legend-dot blue"></span><span>Task Completion</span></div>
+                    <span class="legend-val" style="color:var(--accent-blue);">85%</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-info"><span class="legend-dot green"></span><span>User Engagement</span></div>
+                    <span class="legend-val" style="color:var(--accent-green);">84%</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-info"><span class="legend-dot grey"></span><span>Response Time</span></div>
+                    <span class="legend-val">78%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="widget-card">
+                <div class="widget-header">
+                  <div class="widget-header-title">
+                    <h3>Revenue Analytics</h3>
+                    <p>Revenue breakdown by category</p>
+                  </div>
+                  <span style="font-size:0.75rem; color:var(--text-muted); cursor:pointer;">This Quarter ⌄</span>
+                </div>
+
+                <div class="area-chart-container">
+                  <svg class="area-chart-svg" viewBox="0 0 300 80" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"></stop>
+                        <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"></stop>
+                      </linearGradient>
+                    </defs>
+                    <path d="M 0 65 Q 75 60 150 70 T 300 15 L 300 80 L 0 80 Z" fill="url(#areaGradient)"></path>
+                    <path d="M 0 65 Q 75 60 150 70 T 300 15" fill="none" stroke="#ffffff" stroke-width="2"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- TROUBLESHOOT & REPAIR LOG SECTION -->
+          <section style="margin-top: 1rem;">
+            <div class="widget-header" style="margin-bottom: 0.75rem;">
+              <div class="widget-header-title">
+                <h3>IT Troubleshoot & Equipment Repair Log</h3>
+                <p>Real-time tracking for hardware undergoing maintenance or repairs</p>
+              </div>
+              <button type="button" class="btn-primary" id="troubleshoot-add-note-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span>+ Add Note</span>
+              </button>
+            </div>
+
+            <div class="table-card">
+              <div class="table-responsive">
+                <table class="inventory-table">
+                  <thead>
+                    <tr>
+                      <th>Asset Tag ID</th>
+                      <th>Hardware Description</th>
+                      <th>Category</th>
+                      <th>Current Status</th>
+                      <th>Assigned User / Room</th>
+                      <th>Troubleshoot & Repair Notes</th>
+                      <th style="text-align: right;">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="troubleshoot-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- RECENT ASSETS OVERVIEW SECTION -->
+          <section style="margin-top: 1.5rem;">
+            <div class="widget-header" style="margin-bottom: 0.75rem;">
+              <div class="widget-header-title">
+                <h3>Recent Hardware Registrations</h3>
+                <p>Recently registered IT assets across branches</p>
+              </div>
+              <button type="button" class="btn-secondary" onclick="switchTab('inventory-view')">View Full Inventory
+                →</button>
+            </div>
+
+            <div class="table-card">
+              <div class="table-responsive">
+                <table class="inventory-table">
+                  <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Asset Tag</th>
+                      <th>Name & Specs</th>
+                      <th>Category</th>
+                      <th>Status</th>
+                      <th>Assigned To</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-assets-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ==========================================
+             TAB 2: ITEMS INVENTORY VIEW
+             ========================================== -->
+        <div class="tab-content" id="inventory-view">
+
+          <div class="table-toolbar">
+            <div class="search-pill-wrapper" style="flex:1; max-width:360px;">
+              <svg class="search-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="search-input" class="search-pill-input" style="width:100%;"
+                placeholder="Search by Tag, Name, Serial #, or User...">
+            </div>
+
+            <div class="filters-group">
+              <select id="category-filter" class="filter-select">
+                <option value="ALL">All Categories</option>
+                <option value="Monitor">Monitor</option>
+                <option value="Laptop">Laptop</option>
+                <option value="CPU">CPU / Workstation</option>
+                <option value="Router">Router & Network</option>
+                <option value="Printer">Printer / 3D Printer</option>
+                <option value="CCTV">CCTV / Security</option>
+                <option value="UPS">UPS / Power</option>
+                <option value="Keyboard">Keyboard</option>
+                <option value="Mouse">Mouse</option>
+                <option value="Land Line">Land Line Phone</option>
+                <option value="Air Conditioner">Air Conditioner</option>
+                <option value="Peripherals">Peripherals & Accessories</option>
+              </select>
+
+              <select id="status-filter" class="filter-select">
+                <option value="ALL">All Statuses</option>
+                <option value="Available">Available</option>
+                <option value="In Use">In Use / Assigned</option>
+                <option value="Awaiting Repair">Awaiting Repair</option>
+                <option value="Not Working">Not Working</option>
+              </select>
+
+              <select id="sort-filter" class="filter-select">
+                <option value="category" selected>Sort by: Category (A-Z)</option>
+                <option value="tag">Sort by: Asset Tag ID</option>
+                <option value="name">Sort by: Item Name</option>
+                <option value="status">Sort by: Status</option>
+              </select>
+
+              <button type="button" class="btn-primary" id="add-asset-btn">
+                <span>+ Add Asset</span>
+              </button>
+
+              <button type="button" class="btn-secondary" id="export-csv-btn">
+                <span>Export CSV</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="table-card">
+            <div class="table-responsive">
+              <table class="inventory-table">
+                <thead>
+                  <tr>
+                    <th>Media</th>
+                    <th>Asset Tag ID</th>
+                    <th>Item Description & Specs</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Assigned User / Location</th>
+                    <th>Estimate Price</th>
+                    <th style="text-align: right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="inventory-tbody"></tbody>
+              </table>
+            </div>
+
+            <div class="table-footer">
+              <span id="showing-count-text">Showing 0 items</span>
+              <span id="filtered-total-price" style="font-weight:700; color:var(--text-primary);">Filtered Total Value:
+                Rs 0.00</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             TAB 3: REPORTS & ANALYTICS VIEW
+             ========================================== -->
+        <div class="tab-content" id="reports-view">
+
+          <!-- Analytics Sub-Header -->
+          <div class="analytics-page-header">
+            <div>
+              <div class="breadcrumb-trail">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                <span>›</span>
+                <span>Reports & Analytics</span>
+              </div>
+              <h1 class="analytics-page-title">Inventory Analytics</h1>
+              <p class="analytics-page-sub">Real-time asset distribution, status health, and category breakdown</p>
+            </div>
+            <div class="analytics-header-badges">
+              <div class="analytics-live-badge">
+                <span class="live-pulse-dot"></span>
+                Live Data
+              </div>
+              <button type="button" class="btn-secondary" id="analytics-export-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Export Report
+              </button>
+            </div>
+          </div>
+
+          <!-- KPI Summary Strip -->
+          <div class="analytics-kpi-strip" id="analytics-kpi-strip"></div>
+
+          <!-- Main Charts Grid -->
+          <div class="analytics-charts-grid">
+
+            <!-- LEFT: Category Donut Chart -->
+            <div class="analytics-card analytics-donut-card">
+              <div class="analytics-card-header">
+                <div>
+                  <h3 class="analytics-card-title">Asset Breakdown by Category</h3>
+                  <p class="analytics-card-sub">Distribution across all hardware types</p>
+                </div>
+                <div class="analytics-card-badge">Categories</div>
+              </div>
+              <div class="analytics-donut-wrapper">
+                <svg id="category-donut-svg" viewBox="0 0 220 220" class="analytics-donut-svg"></svg>
+                <div class="analytics-donut-center" id="donut-center-label">
+                  <span class="donut-center-num" id="donut-total-num">0</span>
+                  <span class="donut-center-text">Total Assets</span>
+                </div>
+              </div>
+              <div class="analytics-donut-legend" id="category-legend"></div>
+            </div>
+
+            <!-- RIGHT: Status Bar Chart -->
+            <div class="analytics-card analytics-bar-card">
+              <div class="analytics-card-header">
+                <div>
+                  <h3 class="analytics-card-title">Operational Status Summary</h3>
+                  <p class="analytics-card-sub">Health check across all registered assets</p>
+                </div>
+                <div class="analytics-card-badge">Status</div>
+              </div>
+              <div id="status-chart-container" class="analytics-status-bars"></div>
+              <!-- Status Donut -->
+              <div class="analytics-status-donut-row">
+                <svg id="status-donut-svg" viewBox="0 0 180 180" class="analytics-status-donut-svg"></svg>
+                <div class="analytics-status-donut-legend" id="status-donut-legend"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Category Bar Chart (Full Width) -->
+          <div class="analytics-card analytics-fullwidth-card">
+            <div class="analytics-card-header">
+              <div>
+                <h3 class="analytics-card-title">Category Distribution — Bar View</h3>
+                <p class="analytics-card-sub">Item count per hardware category with percentage breakdown</p>
+              </div>
+              <div class="analytics-top-categories" id="analytics-top-label"></div>
+            </div>
+            <div id="category-chart-container" class="analytics-bar-list"></div>
+          </div>
+
+          <!-- Bottom Row: Value + Top Assets -->
+          <div class="analytics-bottom-grid">
+            <!-- Valuation by Category -->
+            <div class="analytics-card">
+              <div class="analytics-card-header">
+                <div>
+                  <h3 class="analytics-card-title">Inventory Valuation by Category</h3>
+                  <p class="analytics-card-sub">Estimated LKR value per hardware type</p>
+                </div>
+              </div>
+              <div id="value-chart-container" class="analytics-bar-list"></div>
+            </div>
+
+            <!-- Top Assigned Users -->
+            <div class="analytics-card">
+              <div class="analytics-card-header">
+                <div>
+                  <h3 class="analytics-card-title">Top Asset Holders</h3>
+                  <p class="analytics-card-sub">Users with the most assigned hardware</p>
+                </div>
+              </div>
+              <div id="user-chart-container" class="analytics-user-list"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             TAB 4: SETTINGS VIEW
+             ========================================== -->
+        <div class="tab-content" id="settings-view">
+          <div class="dashboard-title-group" style="margin-bottom: 1.5rem;">
+            <h1>System Settings</h1>
+            <p>Preferences, theme controls & data backups</p>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            <div class="widget-card">
+              <h3 style="margin-bottom:0.5rem;">Appearance & Theme</h3>
+              <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.75rem;">Active Theme: <strong
+                  style="color:var(--accent-cyan);">Obsidian Dark Mode</strong></p>
+              <div class="badge status-pill available"
+                style="padding:0.4rem 0.85rem; font-size:0.8rem; display:inline-flex;">🌙 Dark Theme Permanently Active
+              </div>
+            </div>
+
+            <div class="widget-card">
+              <h3 style="margin-bottom:0.5rem;">Storage Engine Reset</h3>
+              <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">Reset inventory data back
+                to original mock dataset.</p>
+              <button type="button" class="btn-secondary" id="reset-default-data-btn"
+                style="color:var(--status-broken-text); border-color:rgba(239,68,68,0.3);">Reset to Original Default
+                Mock Data</button>
+            </div>
+
+            <div class="widget-card">
+              <h3 style="margin-bottom:0.5rem;">Data Backup & Restore</h3>
+              <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">Export or import full JSON
+                inventory backup.</p>
+              <div style="display:flex; gap:0.75rem;">
+                <button type="button" class="btn-primary" id="export-json-btn" style="flex:1;">Export JSON</button>
+                <button type="button" class="btn-secondary" id="import-json-trigger-btn" style="flex:1;">Import
+                  JSON</button>
+                <input type="file" id="import-json-file-input" accept=".json" style="display:none;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 1: ADD / EDIT ASSET FORM MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="asset-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Add New IT Asset</h3>
+        <button type="button" class="modal-close-btn" id="modal-close-x">&times;</button>
+      </div>
+      <form id="asset-form">
+        <div class="modal-body">
+          <input type="hidden" id="form-asset-id-hidden">
+
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label for="form-asset-tag">Asset Tag ID *</label>
+              <input type="text" id="form-asset-tag" class="form-input" placeholder="e.g. M-EPE-015" required>
+            </div>
+
+            <div class="form-group">
+              <label for="form-category">Category *</label>
+              <select id="form-category" class="form-select" required>
+                <option value="Monitor">Monitor</option>
+                <option value="Laptop">Laptop</option>
+                <option value="CPU">CPU / Workstation</option>
+                <option value="Router">Router & Network</option>
+                <option value="Printer">Printer / 3D Printer</option>
+                <option value="CCTV">CCTV / Security</option>
+                <option value="UPS">UPS / Power</option>
+                <option value="Keyboard">Keyboard</option>
+                <option value="Mouse">Mouse</option>
+                <option value="Land Line">Land Line Phone</option>
+                <option value="Air Conditioner">Air Conditioner</option>
+                <option value="Peripherals">Peripherals & Accessories</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="form-item-name">Item Name & Specs *</label>
+            <input type="text" id="form-item-name" class="form-input" placeholder="e.g. HP EliteDisplay E232 - 24 inch"
+              required>
+          </div>
+
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label for="form-serial">Serial Number (S/N)</label>
+              <input type="text" id="form-serial" class="form-input" placeholder="e.g. CN464213F2">
+            </div>
+
+            <div class="form-group">
+              <label for="form-status">Status *</label>
+              <select id="form-status" class="form-select" required>
+                <option value="Available">Available</option>
+                <option value="In Use">In Use / Assigned</option>
+                <option value="Awaiting Repair">Awaiting Repair</option>
+                <option value="Not Working">Not Working</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label for="form-user">Assigned User / Location</label>
+              <input type="text" id="form-user" class="form-input" placeholder="e.g. Mr. Shehan / Server Room">
+            </div>
+
+            <div class="form-group">
+              <label for="form-price">Estimate Price (LKR)</label>
+              <input type="text" id="form-price" class="form-input" placeholder="e.g. Rs 17,500.00">
+            </div>
+          </div>
+
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label for="form-date">Date Added</label>
+              <input type="date" id="form-date" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label for="form-image-input">Upload Hardware Photo</label>
+              <input type="file" id="form-image-input" accept="image/*" class="form-input">
+            </div>
+          </div>
+
+          <div id="form-img-preview-box" style="margin-top:0.5rem; text-align:center;"></div>
+
+          <div class="form-group">
+            <label for="form-notes">Troubleshoot & Maintenance Notes</label>
+            <textarea id="form-notes" class="form-textarea" rows="3"
+              placeholder="Enter hardware repair status, inspection details or serial tags..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn-primary">Save Asset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 2: ADD QUICK NOTE WITH PHOTO MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="quick-note-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Add Quick Maintenance Note</h3>
+        <button type="button" class="modal-close-btn" id="note-modal-close-x">&times;</button>
+      </div>
+      <form id="quick-note-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="note-asset-select">Select Asset *</label>
+            <select id="note-asset-select" class="form-select"></select>
+          </div>
+
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label for="note-type-select">Note Category</label>
+              <select id="note-type-select" class="form-select">
+                <option value="Inspection">Routine Inspection</option>
+                <option value="Repair">Hardware Repair</option>
+                <option value="Maintenance">Scheduled Servicing</option>
+                <option value="Upgrade">Firmware / Spec Upgrade</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="note-status-select">Update Asset Status</label>
+              <select id="note-status-select" class="form-select">
+                <option value="NO_CHANGE">No Change</option>
+                <option value="Available">Available</option>
+                <option value="In Use">In Use</option>
+                <option value="Awaiting Repair">Awaiting Repair</option>
+                <option value="Not Working">Not Working</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="note-description-input">Note Details & Observation *</label>
+            <textarea id="note-description-input" class="form-textarea" rows="4"
+              placeholder="Enter inspection findings, repair progress, or part replacements..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="note-image-input">Attach Inspection Photo</label>
+            <input type="file" id="note-image-input" accept="image/*" class="form-input">
+            <div id="note-img-preview-box" style="margin-top:0.5rem; text-align:center;"></div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="note-modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn-primary" id="save-note-btn">Save Note</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 3: SHARE SYSTEM & OPERATOR PROFILE MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="share-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Share Inventory & Switch Operator Profile</h3>
+        <button type="button" class="modal-close-btn" id="share-modal-close-x">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div
+          style="background:var(--bg-input); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1rem; margin-bottom:1rem;">
+          <h4 style="font-size:0.9rem; margin-bottom:0.5rem;">Operator Profile Settings</h4>
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label for="operator-name-input">Operator Name</label>
+              <input type="text" id="operator-name-input" class="form-input" placeholder="e.g. Shehan Jayasinghe">
+            </div>
+            <div class="form-group">
+              <label for="operator-role-input">Role / Title</label>
+              <input type="text" id="operator-role-input" class="form-input" placeholder="e.g. IT Executive">
+            </div>
+          </div>
+          <button type="button" class="btn-primary" id="save-operator-profile-btn"
+            style="margin-top:0.75rem; width:100%; justify-content:center;">Update Operator Profile</button>
+        </div>
+
+        <div class="form-group">
+          <label>Your Live Inventory Share Code (Base64)</label>
+          <div style="display:flex; gap:0.5rem;">
+            <input type="text" id="share-code-input" class="form-input" readonly
+              style="font-family:monospace; font-size:0.75rem; flex:1;">
+            <button type="button" class="btn-secondary" id="copy-share-code-btn">Copy Code</button>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top:1rem;">
+          <label for="paste-share-code-input">Paste Collaborator Share Code to Sync</label>
+          <textarea id="paste-share-code-input" class="form-textarea" rows="3"
+            placeholder="Paste Base64 share code here..." style="font-family:monospace; font-size:0.75rem;"></textarea>
+          <button type="button" class="btn-primary" id="load-share-code-btn"
+            style="margin-top:0.5rem; width:100%; justify-content:center;">Sync Data from Collaborator</button>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="share-modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 4: ASSET DETAILS & SPEC TAG MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="asset-details-modal">
+    <div class="modal-card" style="max-width: 720px;">
+      <div class="modal-header">
+        <h3>Hardware Asset Details</h3>
+        <button type="button" class="modal-close-btn" id="details-modal-close-x">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:grid; grid-template-columns: 240px 1fr; gap:1.5rem;">
+          <div>
+            <img id="details-main-img" src="" alt="Asset photo"
+              style="width:100%; height:200px; object-fit:cover; border-radius:var(--radius-md); border:1px solid var(--border-color); background:#1c1e27;">
+            <div id="details-gallery-list" style="display:flex; gap:0.5rem; margin-top:0.75rem; overflow-x:auto;"></div>
+            <label for="details-add-photo-input" class="btn-secondary"
+              style="margin-top:0.5rem; width:100%; justify-content:center; cursor:pointer; font-size:0.78rem;">
+              📷 Add Photo to Gallery
+            </label>
+            <input type="file" id="details-add-photo-input" accept="image/*" style="display:none;">
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <span class="asset-id-code" id="details-asset-tag" style="font-size:0.9rem;"></span>
+                <span id="details-status"></span>
+              </div>
+              <h3 id="details-item-name"
+                style="font-size:1.15rem; font-weight:700; margin-top:0.4rem; color:var(--text-primary);"></h3>
+            </div>
+
+            <div
+              style="display:grid; grid-template-columns: 1fr 1fr; gap:0.5rem; background:var(--bg-input); padding:0.75rem; border-radius:var(--radius-md); font-size:0.8rem;">
+              <div><strong style="color:var(--text-muted);">Category:</strong> <span id="details-category"></span></div>
+              <div><strong style="color:var(--text-muted);">Serial #:</strong> <span id="details-serial"
+                  style="font-family:monospace;"></span></div>
+              <div><strong style="color:var(--text-muted);">Assigned To:</strong> <span id="details-user"></span></div>
+              <div><strong style="color:var(--text-muted);">Date Added:</strong> <span id="details-date"></span></div>
+              <div style="grid-column: span 2;"><strong style="color:var(--text-muted);">Estimate Value:</strong> <span
+                  id="details-price" style="font-weight:700; color:var(--accent-cyan);"></span></div>
+            </div>
+
+            <div style="border-top:1px solid var(--border-color); padding-top:0.75rem;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.4rem;">
+                <strong style="font-size:0.85rem;">Troubleshoot & Repair Notes:</strong>
+                <span id="details-notes-status-badge"></span>
+              </div>
+              <div id="details-notes-display"
+                style="font-size:0.8rem; line-height:1.4; background:rgba(255,255,255,0.02); padding:0.6rem; border-radius:6px; border:1px solid var(--border-color); max-height:90px; overflow-y:auto; white-space:pre-wrap;">
+              </div>
+
+              <div style="display:flex; gap:0.4rem; margin-top:0.5rem;">
+                <input type="text" id="details-add-note-input" class="form-input"
+                  style="flex:1; font-size:0.78rem; padding:0.4rem 0.6rem;" placeholder="Add repair update note...">
+                <button type="button" class="btn-primary" id="details-save-note-btn"
+                  style="font-size:0.78rem; padding:0.4rem 0.75rem;">Save Note</button>
+                <button type="button" class="btn-secondary" id="details-clear-notes-btn"
+                  style="font-size:0.78rem; padding:0.4rem 0.65rem; color:#f87171; border-color:rgba(239,68,68,0.3);">Clear
+                  Notes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="details-print-btn">🖨️ Print Spec Tag</button>
+        <button type="button" class="btn-secondary" id="details-edit-btn">✏️ Edit Asset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- JavaScript Application Engine -->
+  <script src="app.js"></script>
+</body>
+
+</html>
